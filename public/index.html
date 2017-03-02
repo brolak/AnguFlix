@@ -11,7 +11,7 @@
 <!-- collection/search/delete icon/budget bar -->
 	<div class="collection">
 		<div class="padding">
-			<h4 class="text-right budget">Budget remaining: ${{budget}}</h4>
+			<h4 class="text-right budget">Budget remaining: {{ money | currency }}</h4>
 			<h3 class="">My Collection</h3>
 				<div class="form-group">
 					<input class="form-control" type="text" ng-model="collectionFilter" placeholder="Search by title"/>
@@ -40,7 +40,7 @@
 						<h1>{{ movie.title }}</h1> 
 						<h4>({{ movie.year }})</h4>
 						<h5>{{ movie.description }}</h5>
-						<span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="remove()" ></span>
+						<span ng-show="removal" class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="remove()" ></span>
 						
 					</div>
 				</div>
