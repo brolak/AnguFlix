@@ -1,8 +1,5 @@
 app.controller('collectionCtrl', function($scope,service) {
 	//define variable in scope of controller
-	
-
-
   	$scope.collection = service.collection;
 
 	$scope.collection.money = {

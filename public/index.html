@@ -49,21 +49,23 @@
 			</div>
 		</div>
 		<hr>
+
 <!-- search bar for all movies-->
 		<div ng-controller="moviesCtrl">
 		<h2>All Movies</h2>
-		<input class="form-control" type="text" ng-model="moviesFilter" placeholder="Search by title">
+		<input class="form-control" type="text" ng-model="movieQuery" placeholder="Search by title">
+		<button class="btn btn-primary" type="button" ng-click="findMovies()">Search for Movies</button>
 		<br>
 		<br>
 <!-- display area for all movies-->
 			<div class="row">
-				<div class="col-md-4" ng-repeat="movie in movies | filter : moviesFilter track by $index"> 
+				<div class="col-md-4" ng-repeat="result in movies track by $index"> 
 					<div class="movieBlock" ng-click="collect()">
 						<div class="padding">
-							<img src="{{ movie.poster }}" alt="poster for {{movie.title}}">
-							<h1 class="text-center">{{ movie.title }}</h1> 
-							<h4 class="text-center">({{ movie.year }})</h4>
-							<h5>{{ movie.description }}</h5>
+							<img class="image-thumbnail" src="{{movieImagePath}}{{ result.poster_path }}" alt="poster for {{result.title}}">
+							<h1 class="text-center">{{ result.title }}</h1> 
+							<h4 class="text-center">({{ result.release_date }})</h4>
+							<h5>{{ result.overview }}</h5>
 						</div>
 					</div>
 				</div>
