@@ -42,9 +42,10 @@ hr {
 	display: inline-block;
 }
 
-.glyphicon {
+.icon {
 	padding-left: 10%;
 	font-size: 20px;
+	display: inline-block;
 }
 
 .collection-message {

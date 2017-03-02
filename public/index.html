@@ -18,7 +18,12 @@
 				<input class="form-control" type="text" ng-model="searchCollection" placeholder="Search by title" />
 				<select class="form-control">
 				</select>
-				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+				<div ng-click="iconSwitch()" class="icon">
+					<span ng-show="delete" class="glyphicon glyphicon-trash" aria-hidden="true">
+					</span>
+					<span ng-show="!delete" class="glyphicon glyphicon-ok" aria-hidden="true">
+					</span>
+				</div>
 			</div>
 	</div>
 </div>

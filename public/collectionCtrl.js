@@ -3,7 +3,15 @@ app.controller('collectionCtrl', function($scope,service) {
 	$scope.collection = service.collection;
 	console.log($scope.collection);
 
+	$scope.delete = false;
+
+	$scope.iconSwitch = function () {
+		this.delete = !this.delete;
+	}
+
 	$scope.emptyCollection = true;
+
+
 	//define functions in scope of controller
 	/*$scope.addText = function () {
 		$scope.allText.push($scope.textInput);
