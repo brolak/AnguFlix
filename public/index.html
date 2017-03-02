@@ -15,7 +15,9 @@
 			<h3 class="">My Collection</h3>
 				<div class="form-group">
 					<input class="form-control" type="text" ng-model="collectionFilter" placeholder="Search by title"/>
-					<select class="form-control">
+					<select class="form-control" ng-model="yearFilter">
+					<option value="">Select a year</option>
+					<option ng-repeat="movie in collection" value="{{movie.year}}">{{movie.year}}</option>
 					</select>
 					<div ng-click="iconSwitch()" class="icon">
 						<span ng-show="delete" class="glyphicon glyphicon-trash" aria-hidden="true">
@@ -31,7 +33,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<h2 class="text-center collection-message" ng-hide="collection.length">Add movies from below to your collection</h2>
-			<div class="col-md-4" ng-repeat="movie in collection | filter : collectionFilter"> 
+			<div class="col-md-4" ng-repeat="movie in collection | filter : collectionFilter || yearFilter"> 
 				<div class="movieBlock">
 					<div class="padding">
 						<img src="{{ movie.poster }}" alt="poster for a movie">
