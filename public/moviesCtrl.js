@@ -4,9 +4,11 @@ app.controller('moviesCtrl', function($scope,service) {
 
 	$scope.collect = function () {
 		if(this.$parent.collection.indexOf(this.movies[this.$index]) === -1) {
-			console.log(this.$parent.money);
-			this.$parent.money -= this.$parent.movies[this.$index].price;
-			console.log(this.$parent.money);
+			if(this.$parent.collection.money.amount < this.movies[this.$index].price) {
+				this.$parent.collection.money.nomore = true;
+				return;
+			}
+			this.$parent.collection.money.amount -= this.$parent.movies[this.$index].price;
 			this.$parent.collection.push(this.movies[this.$index]);
 		} else {
 			return;

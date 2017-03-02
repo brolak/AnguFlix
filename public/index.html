@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="anguflix">
 <head>
+
     <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
   	<link rel="stylesheet" href="style.css">
   	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -11,7 +12,7 @@
 <!-- collection/search/delete icon/budget bar -->
 	<div class="collection">
 		<div class="padding">
-			<h4 class="text-right budget">Budget remaining: {{ money | currency }}</h4>
+			<h4 class="text-right budget">Budget remaining: {{ collection.money.amount | currency }}    <span class="glyphicon glyphicon-usd" aria-hidden="true" ng-click="addMoney()" ></span></h4>
 			<h3 class="">My Collection</h3>
 				<div class="form-group">
 					<input class="form-control" type="text" ng-model="collectionFilter" placeholder="Search by title"/>
@@ -33,6 +34,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<h2 class="text-center collection-message" ng-hide="collection.length">Add movies from below to your collection</h2>
+			<h2 class="text-center collection-message" ng-show="money.nomore">You don't have enough money!</h2>
 			<div class="col-md-4" ng-repeat="movie in collection | filter : collectionFilter || yearFilter"> 
 				<div class="movieBlock">
 					<div class="padding">
