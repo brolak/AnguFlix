@@ -2,7 +2,6 @@
 <!-- put in application name-->
 <html ng-app="anguflix">
 <head>
-	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
   	<link rel="stylesheet" href="style.css">
   	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -31,8 +30,8 @@
 
 <div ng-controller="collectionCtrl" class="container-fluid">
 	<div class="row">
-		<h2 class="text-center collection-message" ng-show="emptyCollection">Add movies from below to your collection</h2>
-		<div class="col-md-4" ng-repeat="movie in myCollection"> 
+		<h2 class="text-center collection-message" ng-show="noCollection">Add movies from below to your collection</h2>
+		<div class="col-md-4" ng-repeat="movie in movies" ng-if="movie.collected"> 
 			<div class="movieBlock">
 				<div class="padding">
 					<img src="{{ movie.poster }}" alt="poster for {{movie.title}}">
@@ -51,8 +50,8 @@
 	<br>
 	<br>
 		<div class="row">
-			<div class="col-md-4" ng-repeat="movie in movies"> 
-				<div class="movieBlock">
+			<div class="col-md-4" ng-repeat="movie in movies track by $index"> 
+				<div class="movieBlock" ng-click="collect()">
 					<div class="padding">
 						<img src="{{ movie.poster }}" alt="poster for {{movie.title}}">
 						<h1>{{ movie.title }}</h1> 

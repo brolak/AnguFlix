@@ -1,7 +1,6 @@
 app.controller('collectionCtrl', function($scope,service) {
 	//define variable in scope of controller
-	$scope.collection = service.collection;
-	console.log($scope.collection);
+	$scope.movies = service.movies;
 
 	$scope.delete = false;
 
@@ -9,7 +8,7 @@ app.controller('collectionCtrl', function($scope,service) {
 		this.delete = !this.delete;
 	}
 
-	$scope.emptyCollection = true;
+	$scope.noCollection = true;
 
 
 	//define functions in scope of controller
