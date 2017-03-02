@@ -1,0 +1,54 @@
+* {
+	font-family: "Open Sans";
+}
+
+body{
+	margin: 2%;
+	background-color: #bdc3c7
+}
+
+img{
+	height: 10%;
+	width: 100%}
+
+hr {
+	color:white;
+}
+
+.movie {
+	font-color: white;
+}
+
+.collection {
+	background-color: #E74C3C;
+}
+
+.budget{
+	margin-right: 3%;
+	padding-top: 1%;
+}
+
+.padding{
+	padding: 1%;
+}
+
+.movieBlock {
+	background-color: #ECF0F1;
+	margin-top: 2%;
+}
+
+.form-control{
+	width: 20%;
+	display: inline-block;
+}
+
+.glyphicon {
+	padding-left: 10%;
+	font-size: 20px;
+}
+
+.collection-message {
+	color: white;
+	margin-top: 9%;
+	margin-bottom: 9%;
+}
