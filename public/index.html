@@ -1,68 +1,71 @@
 <!DOCTYPE html>
-<!-- put in application name-->
 <html ng-app="anguflix">
 <head>
     <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
   	<link rel="stylesheet" href="style.css">
   	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <title>Application Title</title>
+  <title>AnguFlix</title>
 </head>
 
-<body>
-<div class="collection" ng-controller="collectionCtrl">
-	<div class="padding">
-		<h4 class="text-right budget">Budget remaining: ${{budget}}</h4>
-		<h3 class="">My Collection</h3>
-			<div class="form-group">
-				<input class="form-control" type="text" ng-model="searchCollection" placeholder="Search by title" />
-				<select class="form-control">
-				</select>
-				<div ng-click="iconSwitch()" class="icon">
-					<span ng-show="delete" class="glyphicon glyphicon-trash" aria-hidden="true">
-					</span>
-					<span ng-show="!delete" class="glyphicon glyphicon-ok" aria-hidden="true">
-					</span>
+<body ng-controller="collectionCtrl">
+<!-- collection/search/delete icon/budget bar -->
+	<div class="collection">
+		<div class="padding">
+			<h4 class="text-right budget">Budget remaining: ${{budget}}</h4>
+			<h3 class="">My Collection</h3>
+				<div class="form-group">
+					<input class="form-control" type="text" ng-model="searchCollection" placeholder="Search by title" />
+					<select class="form-control">
+					</select>
+					<div ng-click="iconSwitch()" class="icon">
+						<span ng-show="delete" class="glyphicon glyphicon-trash" aria-hidden="true">
+						</span>
+						<span ng-show="!delete" class="glyphicon glyphicon-ok" aria-hidden="true">
+						</span>
+					</div>
 				</div>
-			</div>
-	</div>
-</div>
-
-
-<div ng-controller="collectionCtrl" class="container-fluid">
-	<div class="row">
-		<h2 class="text-center collection-message" ng-show="noCollection">Add movies from below to your collection</h2>
-		<div class="col-md-4" ng-repeat="movie in movies" ng-if="movie.collected"> 
-			<div class="movieBlock">
-				<div class="padding">
-					<img src="{{ movie.poster }}" alt="poster for {{movie.title}}">
-					<h1>{{ movie.title }}</h1> 
-					<h4>({{ movie.year }})</h4>
-					<h5>{{ movie.description }}</h5>
-				</div>
-			</div>
 		</div>
 	</div>
-	<hr>
 
-	<div ng-controller="moviesCtrl">
-	<h2>All Movies</h2>
-	<input class="form-control" type="text" ng-model="textInput" placeholder="Search by title">
-	<br>
-	<br>
+<!-- display area for movies in collection/empty message-->
+	<div ng-controller="collectionCtrl" class="container-fluid">
 		<div class="row">
-			<div class="col-md-4" ng-repeat="movie in movies track by $index"> 
-				<div class="movieBlock" ng-click="collect()">
+			<h2 class="text-center collection-message" ng-hide="collection.length">Add movies from below to your collection</h2>
+			<div class="col-md-4" ng-repeat="movie in collection"> 
+				<div class="movieBlock">
 					<div class="padding">
-						<img src="{{ movie.poster }}" alt="poster for {{movie.title}}">
+						<img src="{{ movie.poster }}" alt="poster for a movie">
 						<h1>{{ movie.title }}</h1> 
 						<h4>({{ movie.year }})</h4>
 						<h5>{{ movie.description }}</h5>
+						<span ng-hide="removal" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr>
+<!-- search bar for all movies-->
+		<div ng-controller="moviesCtrl">
+		<h2>All Movies</h2>
+		<input class="form-control" type="text" ng-model="textInput" placeholder="Search by title">
+		<br>
+		<br>
+<!-- display area for all movies-->
+			<div class="row">
+				<div class="col-md-4" ng-repeat="movie in movies track by $index"> 
+					<div class="movieBlock" ng-click="collect()">
+						<div class="padding">
+							<img src="{{ movie.poster }}" alt="poster for {{movie.title}}">
+							<h1 class="text-center">{{ movie.title }}</h1> 
+							<h4 class="text-center">({{ movie.year }})</h4>
+							<h5>{{ movie.description }}</h5>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
 	<!-- script links -->
   <script src="angular/angular.js"></script>

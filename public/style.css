@@ -53,3 +53,7 @@ hr {
 	margin-top: 9%;
 	margin-bottom: 9%;
 }
+
+.glyphicon-remove {
+	color: red;
+}

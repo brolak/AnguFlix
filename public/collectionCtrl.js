@@ -1,15 +1,14 @@
 app.controller('collectionCtrl', function($scope,service) {
 	//define variable in scope of controller
-	$scope.movies = service.movies;
+	$scope.collection = service.collection;
 
+	$scope.removal = false;
 	$scope.delete = false;
 
 	$scope.iconSwitch = function () {
 		this.delete = !this.delete;
+		this.removal = !this.removal;
 	}
-
-	$scope.noCollection = true;
-
 
 	//define functions in scope of controller
 	/*$scope.addText = function () {
