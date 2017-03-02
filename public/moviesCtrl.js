@@ -3,9 +3,11 @@ app.controller('moviesCtrl', function($scope,service) {
 	$scope.movies = service.movies;
 
 	$scope.collect = function () {
-		
-		this.$parent.collection.push(this.movies[this.$index]);
+		if(this.$parent.collection.indexOf(this.movies[this.$index]) !== 0) {
+			this.$parent.collection.push(this.movies[this.$index]);
+		} else {
+			return;
+		}
 
-		console.log(this.$parent.collection.indexOf(this.movies[this.$index]));
 	}
 })
