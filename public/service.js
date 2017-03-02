@@ -18,7 +18,12 @@ app.service('service', function(){
   description:"This movie is just the wildest."}
   ];
 
+  var collection = [
+
+  ];
+
   return { 
-    data: movies 
+    movies: movies,
+    collection: collection
   };
 });

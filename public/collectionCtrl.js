@@ -1,7 +1,7 @@
-app.controller('moviesCtrl', function($scope,service) {
+app.controller('collectionCtrl', function($scope,service) {
 	//define variable in scope of controller
-	$scope.movieList = service.data;
-	console.log($scope.movieList);
+	$scope.collection = service.collection;
+	console.log($scope.collection);
 
 	$scope.emptyCollection = true;
 	//define functions in scope of controller

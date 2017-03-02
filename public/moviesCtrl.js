@@ -1,9 +1,7 @@
 app.controller('moviesCtrl', function($scope,service) {
 	//define variable in scope of controller
-	$scope.movieList = service.data;
-	console.log($scope.movieList);
-
-	$scope.emptyCollection = true;
+	$scope.movies = service.movies;
+	console.log($scope.movies);
 	//define functions in scope of controller
 	/*$scope.addText = function () {
 		$scope.allText.push($scope.textInput);
